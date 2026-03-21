@@ -1,0 +1,459 @@
+/* E2B Style for VitePress */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/misans.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --vp-c-bg: #fafafa;
+  --vp-c-bg-soft: #f5f5f5;
+  --vp-c-bg-mute: #ebebeb;
+
+  --vp-c-border: #d6d6d6;
+  --vp-c-divider: #d6d6d6;
+
+  --vp-c-text-1: #0a0a0a;
+  --vp-c-text-2: #333333;
+  --vp-c-text-3: #707070;
+
+  --vp-c-brand-1: #0a0a0a;
+  --vp-c-brand-2: #333333;
+
+  --vp-font-family-base: 'IBM Plex Sans', 'MiSans', system-ui, -apple-system, sans-serif;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #0a0a0a 0%, #333 100%);
+}
+
+.dark {
+  --vp-c-bg: #0a0a0a;
+  --vp-c-bg-soft: #141414;
+  --vp-c-bg-mute: #292929;
+
+  --vp-c-border: #292929;
+  --vp-c-divider: #292929;
+
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #e6e6e6;
+  --vp-c-text-3: #848484;
+
+  --vp-c-brand-1: #ffffff;
+  --vp-c-brand-2: #e6e6e6;
+
+  --vp-home-hero-name-background: linear-gradient(135deg, #fff 0%, #e6e6e6 100%);
+}
+
+/* 点状背景 - 仅首页 */
+.VPHome {
+  position: relative;
+}
+
+.VPHome::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--vp-c-text-3) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .VPHome::before {
+  opacity: 0.2;
+}
+
+/* 确保内容在点状背景之上 */
+.VPHome .VPHero {
+  position: relative;
+  z-index: 1;
+}
+
+/* 导航栏样式 */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-border) !important;
+  background: var(--vp-c-bg) !important;
+}
+
+/* 侧边栏分割线 */
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-border) !important;
+  border-top: none !important;
+}
+
+.VPSidebar .curtain {
+  display: none !important;
+}
+
+/* 隐藏导航栏底部多余的分割线 */
+.VPNavBar .divider,
+.VPNavBar .divider-line {
+  display: none !important;
+}
+
+/* 隐藏标题下方的分割线 */
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom: none !important;
+}
+
+/* 侧边栏点状背景 */
+.VPSidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--vp-c-text-3) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .VPSidebar::before {
+  opacity: 0.2;
+}
+
+/* 确保侧边栏内容在点状背景之上 */
+.VPSidebar .VPSidebarItem {
+  position: relative;
+  z-index: 1;
+}
+
+.VPNavBar {
+  background: var(--vp-c-bg) !important;
+}
+
+.VPNavBarTitle .title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.VPNavBarTitle a {
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPNavBarMenu .VPLink {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+/* Hero区域增加顶部间距 */
+.VPHome {
+  padding-top: 90px !important;
+}
+
+/* 深浅模式切换按钮 */
+.VPSwitch {
+  border: 1px solid var(--vp-c-border) !important;
+  border-radius: 0 !important;
+  background: var(--vp-c-bg) !important;
+}
+
+.VPSwitch:hover {
+  border-color: var(--vp-c-text-3) !important;
+}
+
+/* 隐藏默认语言选择器 */
+.VPNavBarTranslations,
+.VPNavBar .VPFlyout.translations,
+.VPNavBar .content-body > .VPFlyout {
+  display: none !important;
+}
+
+/* 隐藏 VitePress 默认的分割线 */
+.VPNavBar .content-body .appearance::before,
+.VPNavBar .content-body .translations::before,
+.VPNavBar .content-body .social-links::before {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+}
+
+/* 自定义语言选择器位置 */
+.VPNavBar .content-body {
+  display: flex;
+  align-items: center;
+}
+
+.VPNavBarMenu {
+  order: 0;
+}
+
+/* 桌面端：导航栏显示语言选择器 */
+@media (min-width: 1280px) {
+  .lang-switch {
+    margin-left: 16px;
+    padding-left: 16px;
+    order: 1;
+    position: relative;
+  }
+
+  .lang-switch::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 28px;
+    background-color: var(--vp-c-border);
+  }
+
+  .VPNavBarAppearance {
+    order: 2;
+    margin-left: 12px;
+  }
+}
+
+/* 平板端：隐藏导航栏语言选择器 */
+@media (max-width: 1279px) {
+  .VPNavBar .content-body .lang-switch {
+    display: flex !important;
+  }
+}
+
+/* 删除三个点菜单里的分割线 */
+.VPNavBarExtra .group {
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 移动端隐藏三个点菜单 */
+@media (max-width: 1279px) {
+  .VPNavBar .extra,
+  .VPNavBarExtra,
+  button.VPNavBarHamburger {
+    display: none !important;
+  }
+
+  /* 移动端显示深浅色切换 */
+  .VPNavBarAppearance {
+    display: flex !important;
+    align-items: center;
+    order: 3;
+    margin-left: 4px !important;
+  }
+
+  .lang-switch {
+    order: 2;
+    margin-left: 16px !important;
+    padding-left: 16px !important;
+    position: relative;
+  }
+
+  .lang-switch::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 24px;
+    background-color: var(--vp-c-border);
+  }
+}
+
+.theme-text-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', 'MiSans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.theme-text-btn:hover {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-text-3);
+}
+
+/* 移动端深浅色图标样式 */
+@media (max-width: 1279px) {
+  .theme-text-btn {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .theme-text-btn .theme-text {
+    display: none;
+  }
+
+  .theme-text-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .VPNavBarAppearance {
+    border-left: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .VPNavBarAppearance .VPSwitchAppearance {
+    display: none !important;
+  }
+}
+
+/* 移动端样式 */
+.VPFlyout .theme-text-btn {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 0 !important;
+}
+
+.VPLocalNav .theme-text-btn {
+  border-radius: 0 !important;
+}
+
+/* 全局去掉圆角和阴影 */
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 提示框边框 */
+.custom-block {
+  border: 1px solid #e56f00 !important;
+  border-left-width: 4px !important;
+}
+
+.custom-block.warning {
+  border-left-color: #e56f00 !important;
+}
+
+.custom-block.tip {
+  border-left-color: #e56f00 !important;
+}
+
+.custom-block.info {
+  border-left-color: #e56f00 !important;
+}
+
+.custom-block.danger {
+  border-left-color: #e56f00 !important;
+}
+
+/* 保留圆形头像 */
+.VPHero .image-bg,
+.VPHero .image-container img {
+  border-radius: 50% !important;
+}
+.VPHero .image-bg,
+.VPHero .image-container img {
+  border-radius: 50% !important;
+}
+
+@media (max-width: 960px) {
+  .VPLocalNav .theme-text-btn {
+    padding: 8px 12px;
+  }
+}
+
+/* 圆形头像 */
+.VPHero .image-bg {
+  border-radius: 50%;
+}
+
+.VPHero .image-container img {
+  border-radius: 50%;
+  border: 3px solid var(--vp-c-border);
+}
+
+/* 大标题样式 */
+.VPHero .name {
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background: none !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPHero .text {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+/* Features hover animation */
+.VPFeature {
+  transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1) !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--vp-c-border) !important;
+  background: var(--vp-c-bg) !important;
+}
+
+.VPFeature:hover {
+  background: var(--vp-c-bg-soft) !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 var(--vp-c-border) !important;
+}
+
+/* Hero 按钮样式 */
+.VPButton {
+  border-radius: 0 !important;
+  font-family: 'IBM Plex Sans', 'MiSans', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1) !important;
+}
+
+.VPButton.medium {
+  padding: 0 16px !important;
+  line-height: 36px !important;
+  font-size: 12px !important;
+}
+
+.VPButton.big {
+  padding: 0 20px !important;
+  line-height: 42px !important;
+  font-size: 13px !important;
+}
+
+/* brand 按钮 - 深色背景 */
+.VPButton.brand {
+  border: 1px solid var(--vp-c-text-1) !important;
+  color: var(--vp-c-bg) !important;
+  background-color: var(--vp-c-text-1) !important;
+}
+
+.VPButton.brand:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 var(--vp-c-text-3) !important;
+}
+
+/* alt 按钮 - 边框样式 */
+.VPButton.alt {
+  border: 1px solid var(--vp-c-border) !important;
+  color: var(--vp-c-text-1) !important;
+  background-color: var(--vp-c-bg) !important;
+}
+
+.VPButton.alt:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 var(--vp-c-border) !important;
+}
