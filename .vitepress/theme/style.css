@@ -227,9 +227,13 @@
 /* 移动端隐藏三个点菜单 */
 @media (max-width: 1279px) {
   .VPNavBar .extra,
-  .VPNavBarExtra,
-  button.VPNavBarHamburger {
+  .VPNavBarExtra {
     display: none !important;
+  }
+
+  /* 移动端显示汉堡菜单 */
+  .VPNavBarHamburger {
+    display: flex !important;
   }
 
   /* 移动端显示深浅色切换 */
@@ -456,4 +460,21 @@
 .VPButton.alt:hover {
   transform: translate(-2px, -2px);
   box-shadow: 2px 2px 0 var(--vp-c-border) !important;
+}
+
+/* Footer */
+.VPFooter a {
+  text-decoration: none !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: none !important;
+}
+
+/* 移动端折叠菜单隐藏语言和深浅色 */
+@media (max-width: 1279px) {
+  .VPNavScreenTranslations,
+  .VPNavScreenAppearance {
+    display: none !important;
+  }
 }

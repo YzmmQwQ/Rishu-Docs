@@ -31,7 +31,10 @@ export default defineConfig({
               { text: '添加前须知', link: '/guide/before-add' },
             ]
           }
-        ]
+        ],
+        footer: {
+          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+        }
       }
     },
     en: {
@@ -53,7 +56,10 @@ export default defineConfig({
               { text: 'Before Adding', link: '/en/guide/before-add' },
             ]
           }
-        ]
+        ],
+        footer: {
+          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+        }
       }
     },
     ja: {
@@ -75,7 +81,10 @@ export default defineConfig({
               { text: '追加前に', link: '/ja/guide/before-add' },
             ]
           }
-        ]
+        ],
+        footer: {
+          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+        }
       }
     }
   }
