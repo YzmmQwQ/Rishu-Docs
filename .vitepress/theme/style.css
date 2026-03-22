@@ -231,9 +231,10 @@
     display: none !important;
   }
 
-  /* 移动端显示汉堡菜单 */
+  /* 移动端汉堡菜单宽度 */
   .VPNavBarHamburger {
-    display: flex !important;
+    width: 18px !important;
+    flex: none !important;
   }
 
   /* 移动端显示深浅色切换 */
@@ -246,8 +247,8 @@
 
   .lang-switch {
     order: 2;
-    margin-left: 16px !important;
-    padding-left: 16px !important;
+    margin-left: 8px !important;
+    padding-left: 8px !important;
     position: relative;
   }
 
