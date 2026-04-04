@@ -10,11 +10,11 @@ hero:
     alt: Rishu
   actions:
     - theme: brand
-      text: BEFORE ADD
-      link: /en/guide/before-add
+      text: BEFORE ADDING
+      link: /en/before-adding/what-is-rishu
     - theme: alt
-      text: WHAT IS HIM
-      link: /en/guide/what-is-rishu
+      text: LEARN MORE
+      link: /en/learn-more/rishu-villa
 
 features:
   - icon: 🤖

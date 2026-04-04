@@ -122,7 +122,7 @@ function getLangLink(prefix: string) {
   border: 1px solid var(--vp-c-border);
   border-radius: 0;
   cursor: pointer;
-  font-family: 'IBM Plex Sans', 'MiSans', sans-serif;
+  font-family: 'MiSans', 'IBM Plex Sans', sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: var(--vp-c-text-3);

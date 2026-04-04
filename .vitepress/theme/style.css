@@ -4,9 +4,10 @@
 
 @font-face {
   font-family: 'MiSans';
-  src: url('/fonts/misans.ttf') format('truetype');
-  font-weight: 600;
+  src: url('/fonts/MiSans-VF.ttf') format('truetype-variations');
+  font-weight: 100 900;
   font-style: normal;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
 
 :root {
@@ -24,7 +25,7 @@
   --vp-c-brand-1: #0a0a0a;
   --vp-c-brand-2: #333333;
 
-  --vp-font-family-base: 'IBM Plex Sans', 'MiSans', system-ui, -apple-system, sans-serif;
+  --vp-font-family-base: 'MiSans', 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
 
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #0a0a0a 0%, #333 100%);
@@ -121,6 +122,19 @@
 .VPSidebar .VPSidebarItem {
   position: relative;
   z-index: 1;
+}
+
+/* 侧边栏字重调整 */
+.VPSidebarItem.level-0 .text {
+  font-weight: 500 !important;
+}
+
+.VPSidebarItem.level-1 .text,
+.VPSidebarItem.level-2 .text,
+.VPSidebarItem.level-3 .text,
+.VPSidebarItem.level-4 .text,
+.VPSidebarItem.level-5 .text {
+  font-weight: 400 !important;
 }
 
 .VPNavBar {
@@ -272,7 +286,7 @@
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-border);
   cursor: pointer;
-  font-family: 'IBM Plex Sans', 'MiSans', sans-serif;
+  font-family: 'MiSans', 'IBM Plex Sans', sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: var(--vp-c-text-3);
@@ -338,25 +352,24 @@
 }
 
 /* 提示框边框 */
-.custom-block {
+.custom-block.warning {
   border: 1px solid #e56f00 !important;
   border-left-width: 4px !important;
 }
 
-.custom-block.warning {
-  border-left-color: #e56f00 !important;
-}
-
 .custom-block.tip {
-  border-left-color: #e56f00 !important;
+  border: 1px solid #0a0 !important;
+  border-left-width: 4px !important;
 }
 
 .custom-block.info {
-  border-left-color: #e56f00 !important;
+  border: 1px solid #0066cc !important;
+  border-left-width: 4px !important;
 }
 
 .custom-block.danger {
-  border-left-color: #e56f00 !important;
+  border: 1px solid #dc2626 !important;
+  border-left-width: 4px !important;
 }
 
 /* 保留圆形头像 */
@@ -420,7 +433,7 @@
 /* Hero 按钮样式 */
 .VPButton {
   border-radius: 0 !important;
-  font-family: 'IBM Plex Sans', 'MiSans', sans-serif !important;
+  font-family: 'MiSans', 'IBM Plex Sans', sans-serif !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.02em !important;

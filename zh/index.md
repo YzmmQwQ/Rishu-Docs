@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/before-add
+      link: /before-adding/what-is-rishu
 
 features:
   - icon: 🤖

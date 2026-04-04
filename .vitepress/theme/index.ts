@@ -3,14 +3,20 @@ import './style.css'
 import { onMounted, watch, h } from 'vue'
 import { useData } from 'vitepress'
 import LanguageSwitch from './components/LanguageSwitch.vue'
+import MusicCard from './components/MusicCard.vue'
+import MusicPlayer from './components/MusicPlayer.vue'
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('MusicCard', MusicCard)
+  },
   Layout: () => {
     // @ts-ignore
     const Layout = DefaultTheme.Layout
     return h(Layout, null, {
-      'nav-bar-content-after': () => h(LanguageSwitch)
+      'nav-bar-content-after': () => h(LanguageSwitch),
+      'layout-bottom': () => h(MusicPlayer)
     })
   },
   setup() {
