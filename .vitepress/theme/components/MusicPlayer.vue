@@ -481,7 +481,7 @@ const handleSongClick = (index: number) => {
   height: 44px;
   background: var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
-  color: white;
+  color: var(--vp-c-bg);
 }
 
 .control-btn.play-btn:hover {
