@@ -17,9 +17,9 @@ export default defineConfig({
       label: '中文',
       lang: 'zh-CN',
       themeConfig: {
-        siteTitle: 'DOCS.RISHU.US.CI',
+        siteTitle: 'DOCS.RISHU.CFD',
         nav: [
-          { text: 'MAIN', link: 'https://rishu.us.ci' },
+          { text: 'MAIN', link: 'https://rishu.cfd' },
           { text: 'HOME', link: '/' },
           { text: 'GUIDE', link: '/guide/before-add' },
         ],
@@ -42,9 +42,9 @@ export default defineConfig({
       lang: 'en-US',
       link: '/en/',
       themeConfig: {
-        siteTitle: 'DOCS.RISHU.US.CI',
+        siteTitle: 'DOCS.RISHU.CFD',
         nav: [
-          { text: 'MAIN', link: 'https://rishu.us.ci' },
+          { text: 'MAIN', link: 'https://rishu.cfd' },
           { text: 'HOME', link: '/en/' },
           { text: 'GUIDE', link: '/en/guide/before-add' },
         ],
@@ -67,9 +67,9 @@ export default defineConfig({
       lang: 'ja-JP',
       link: '/ja/',
       themeConfig: {
-        siteTitle: 'DOCS.RISHU.US.CI',
+        siteTitle: 'DOCS.RISHU.CFD',
         nav: [
-          { text: 'MAIN', link: 'https://rishu.us.ci' },
+          { text: 'MAIN', link: 'https://rishu.cfd' },
           { text: 'HOME', link: '/ja/' },
           { text: 'GUIDE', link: '/ja/guide/before-add' },
         ],

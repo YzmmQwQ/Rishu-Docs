@@ -2,11 +2,11 @@
 import { ref, onMounted } from 'vue'
 
 const taglines = [
-  '快速 / 智能 / 高性能',
+  'FAST',
   '16 YEARS OLD',
-  'FROM JAPAN 🇯🇵',
+  'BEE MYSELF',
   'LOVE U FOREVER',
-  'SIMPLE PERSON'
+  'SIMPLE STUDENT'
 ]
 
 const currentIndex = ref(0)
