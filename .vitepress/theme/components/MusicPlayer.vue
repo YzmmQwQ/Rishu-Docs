@@ -8,9 +8,12 @@
           <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
         </svg>
       </button>
-      <button class="float-menu-btn" @click="closePlayer" :title="i18n.close">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      <button class="float-menu-btn play-toggle" @click="isPlaying = !isPlaying" :title="isPlaying ? i18n.stop : i18n.play">
+        <svg v-if="!isPlaying" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg v-else viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M6 6h12v12H6z"/>
         </svg>
       </button>
       <button class="float-menu-btn" @click="nextSong" :title="i18n.nextSong">
@@ -24,6 +27,16 @@
         <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
       </svg>
     </div>
+    <!-- 歌曲切换提示 -->
+    <Transition name="toast">
+      <div v-if="showToast" class="song-toast">
+        <img :src="currentSong?.cover" class="toast-cover" />
+        <div class="toast-info">
+          <div class="toast-title">{{ currentSong?.title }}</div>
+          <div class="toast-artist">{{ currentSong?.artist }}</div>
+        </div>
+      </div>
+    </Transition>
   </div>
 
   <!-- 右下角播放器弹窗 -->
@@ -136,6 +149,8 @@ const { showPlayer, isMinimized, currentIndex, currentSong, openPlayer, closePla
 const { lang } = useData()
 
 const isPlaying = ref(true)
+const showToast = ref(false)
+let toastTimer: ReturnType<typeof setTimeout> | null = null
 
 // 用一个稳定的 key，只在切换歌曲时改变
 const iframeKey = computed(() => `player-${currentIndex.value}`)
@@ -186,16 +201,30 @@ const i18n = computed(() => {
   }
 })
 
+const triggerToast = () => {
+  if (toastTimer) clearTimeout(toastTimer)
+  showToast.value = true
+  toastTimer = setTimeout(() => {
+    showToast.value = false
+  }, 2000)
+}
+
 const prevSong = () => {
   const newIndex = currentIndex.value > 0 ? currentIndex.value - 1 : songs.length - 1
   playSong(newIndex)
   isPlaying.value = true
+  if (!showPlayer.value || isMinimized.value) {
+    triggerToast()
+  }
 }
 
 const nextSong = () => {
   const newIndex = currentIndex.value < songs.length - 1 ? currentIndex.value + 1 : 0
   playSong(newIndex)
   isPlaying.value = true
+  if (!showPlayer.value || isMinimized.value) {
+    triggerToast()
+  }
 }
 
 const handleSongClick = (index: number) => {
@@ -244,6 +273,17 @@ const handleSongClick = (index: number) => {
   color: var(--vp-c-text-1);
 }
 
+.float-menu-btn.play-toggle {
+  background: var(--vp-c-bg-inverted);
+  border-color: var(--vp-c-bg-inverted);
+  color: var(--vp-c-bg);
+}
+
+.float-menu-btn.play-toggle:hover {
+  background: var(--vp-c-bg-inverted-hover);
+  border-color: var(--vp-c-bg-inverted-hover);
+}
+
 .music-float-btn {
   width: 48px;
   height: 48px;
@@ -258,6 +298,53 @@ const handleSongClick = (index: number) => {
 
 .music-float-btn:hover {
   background: var(--vp-c-bg-soft);
+}
+
+.song-toast {
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toast-cover {
+  width: 48px;
+  height: 52px;
+  object-fit: cover;
+}
+
+.toast-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+}
+
+.toast-artist {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 .music-wrapper {
