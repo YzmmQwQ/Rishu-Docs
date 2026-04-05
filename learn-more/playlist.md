@@ -2,7 +2,7 @@
 
 这里收录了 Rishu 喜欢的歌曲。
 
----
+## Jay Chou
 
 <MusicCard :songIndex="0" />
 
