@@ -2,7 +2,7 @@
 
 A collection of songs Rishu likes.
 
----
+## Jay Chou
 
 <MusicCard :songIndex="0" />
 
@@ -19,3 +19,9 @@ A collection of songs Rishu likes.
 <MusicCard :songIndex="6" />
 
 <MusicCard :songIndex="7" />
+
+---
+
+> Yo, got something here, all from my playlist.
+>
+> Already reading the lines, what else do you want me to say? I'll be leaving soon.
