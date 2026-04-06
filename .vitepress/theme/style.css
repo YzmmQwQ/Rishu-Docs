@@ -1,6 +1,7 @@
 /* E2B Style for VitePress */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @font-face {
   font-family: 'MiSans';
@@ -496,4 +497,12 @@
   .VPNavScreenAppearance {
     display: none !important;
   }
+}
+
+/* 代码块字体 */
+.vp-code-group,
+.vp-code,
+pre,
+code {
+  font-family: 'JetBrains Mono', monospace !important;
 }
