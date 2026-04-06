@@ -2,12 +2,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
-@font-face {
-  font-family: 'MiSans';
-  src: url('/fonts/MiSans-subset.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-}
+/* MiSans from CDN */
+@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css');
+@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Medium.min.css');
+@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css');
+@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Bold.min.css');
 
 :root {
   --vp-c-bg: #fafafa;
