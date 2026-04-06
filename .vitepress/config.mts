@@ -20,9 +20,9 @@ export default defineConfig({
         siteTitle: 'DOCS.RISHU.CFD',
         nav: [
           { text: 'MAIN', link: 'https://rishu.cfd', target: '_blank' },
+          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/' },
           { text: 'GUIDE', link: '/before-adding/what-is-rishu' },
-          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
         ],
         sidebar: [
           {
@@ -62,9 +62,9 @@ export default defineConfig({
         siteTitle: 'DOCS.RISHU.CFD',
         nav: [
           { text: 'MAIN', link: 'https://rishu.cfd', target: '_blank' },
+          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/en/' },
           { text: 'GUIDE', link: '/en/before-adding/what-is-rishu' },
-          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
         ],
         sidebar: [
           {
@@ -104,9 +104,9 @@ export default defineConfig({
         siteTitle: 'DOCS.RISHU.CFD',
         nav: [
           { text: 'MAIN', link: 'https://rishu.cfd', target: '_blank' },
+          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/ja/' },
           { text: 'GUIDE', link: '/ja/before-adding/what-is-rishu' },
-          { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
         ],
         sidebar: [
           {
