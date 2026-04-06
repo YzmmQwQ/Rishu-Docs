@@ -81,7 +81,6 @@
 
 /* 导航栏样式 */
 .VPNav {
-  border-bottom: 1px solid var(--vp-c-border) !important;
   background: var(--vp-c-bg) !important;
 }
 
@@ -253,6 +252,11 @@
   .VPNavBarHamburger {
     width: 18px !important;
     flex: none !important;
+    color: var(--vp-c-text-2) !important;
+  }
+
+  .VPNavBarHamburger:hover {
+    color: var(--vp-c-text-1) !important;
   }
 
   /* 移动端显示深浅色切换 */
@@ -266,19 +270,6 @@
   .lang-switch {
     order: 2;
     margin-left: 8px !important;
-    padding-left: 8px !important;
-    position: relative;
-  }
-
-  .lang-switch::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 24px;
-    background-color: var(--vp-c-border);
   }
 }
 

@@ -30,3 +30,7 @@ rishu@poolhub:~$ fastfetch
 ---
 
 > Stop staring, it's just a cheap server. It runs, that's enough.
+
+::: info Server Status
+Want to check server status? Visit [status.rishu.cfd](https://status.rishu.cfd)
+:::
