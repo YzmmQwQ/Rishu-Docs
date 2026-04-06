@@ -81,6 +81,7 @@
 
 /* 导航栏样式 */
 .VPNav {
+  border-bottom: 1px solid var(--vp-c-border) !important;
   background: var(--vp-c-bg) !important;
 }
 
