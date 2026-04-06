@@ -30,3 +30,7 @@ rishu@poolhub:~$ fastfetch
 ---
 
 > 見んなよ、ただの安サーバーだ。動けばいいんだよ。
+
+::: info サーバーステータス
+サーバーの稼働状態を確認したい？[status.rishu.cfd](https://status.rishu.cfd) へ
+:::

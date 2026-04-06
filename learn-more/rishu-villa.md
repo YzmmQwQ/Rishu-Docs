@@ -30,3 +30,7 @@ rishu@poolhub:~$ fastfetch
 ---
 
 > 别看了，就一破服务器，能跑就行。
+
+::: info 服务器状态
+想查看服务器运行状态？前往 [status.rishu.cfd](https://status.rishu.cfd)
+:::
