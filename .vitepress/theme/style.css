@@ -2,11 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
-/* MiSans from CDN */
-@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css');
-@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Medium.min.css');
-@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css');
-@import url('https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Bold.min.css');
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans-subset.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+}
 
 :root {
   --vp-c-bg: #fafafa;
@@ -25,7 +26,7 @@
   --vp-c-brand-1: #0a0a0a;
   --vp-c-brand-2: #333333;
 
-  --vp-font-family-base: 'MiSans', 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --vp-font-family-base: 'IBM Plex Sans', 'MiSans', system-ui, -apple-system, sans-serif;
 
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #0a0a0a 0%, #333 100%);
@@ -288,7 +289,7 @@
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-border);
   cursor: pointer;
-  font-family: 'MiSans', 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', 'MiSans', sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: var(--vp-c-text-3);
@@ -437,7 +438,7 @@
 /* Hero 按钮样式 */
 .VPButton {
   border-radius: 0 !important;
-  font-family: 'MiSans', 'IBM Plex Sans', sans-serif !important;
+  font-family: 'IBM Plex Sans', 'MiSans', sans-serif !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.02em !important;
