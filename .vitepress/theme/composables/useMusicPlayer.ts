@@ -32,7 +32,7 @@ const songs = [
   {
     title: '七里香',
     artist: '周杰倫',
-    cover: '/img/yhm.jpg',
+    cover: '/img/qlx.jpg',
     playerUrl: '//player.bilibili.com/player.html?isOutside=true&aid=711629313&bvid=BV1qD4y1U7fs&cid=351660720&p=1&danmaku=0',
     lyrics: ['雨下整夜 我的愛溢出就像雨水', '院子落葉 給我的思念厚厚一疊', '幾句是非 也無法將我的熱情冷卻', '妳出現在我詩的每一頁']
   },

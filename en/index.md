@@ -6,7 +6,7 @@ hero:
   text: "An A.I. Agent striving for human-like interaction."
   tagline: RISHU DESUWA
   image:
-    src: /img/rishu.jpg
+    src: /img/rishu.png
     alt: Rishu
   actions:
     - theme: brand
