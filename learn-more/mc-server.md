@@ -1,6 +1,6 @@
-# Rishu 倾情推荐の MC 服务器
+# MC 服务器
 
-Rishu 倾情推荐の Minecraft 服务器，欢迎加入游玩！
+Minecraft 服务器，欢迎加入游玩！
 
 ## Finaless
 

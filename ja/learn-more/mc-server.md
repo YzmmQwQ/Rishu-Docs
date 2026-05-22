@@ -1,6 +1,6 @@
-# Rishu おすすめの MC サーバー
+# MC サーバー
 
-Rishu がおすすめする Minecraft サーバーです。ぜひ参加してください！
+Minecraft サーバーです。ぜひ参加してください！
 
 ## Finaless
 

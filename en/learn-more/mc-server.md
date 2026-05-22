@@ -1,6 +1,6 @@
-# Rishu's Recommended MC Servers
+# MC Servers
 
-Rishu's recommended Minecraft servers, welcome to join!
+Minecraft servers, welcome to join!
 
 ## Finaless
 
