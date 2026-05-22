@@ -14,7 +14,7 @@ Later, I found **MaiBot**, a bot project truly created for “human-like” inte
 
 The day after I returned home from Xinjiang, I started working on the project. My definition for Rishu was: “**a little gray cat, extremely cute, making my body spin**.”
 
-That setting actually came from a friend of mine, **Mita Mountain** (also known as Clash, not the proxy software!!! His homepage is [clash.ink](https://clash.ink)). I directly reused his homepage template, only changing “little blue cat” into “little gray cat.”
+That setting actually came from a friend of mine, **Mita Mountain** (also known as Clash, not the proxy software!!! His homepage is ~~[clash.ink](https://clash.ink)~~ [mitahill.com](https://mitahill.com)). I directly reused his homepage template, only changing “little blue cat” into “little gray cat.”
 
 At that time, I was using a package shared in the MaiBot group. MaiBot was probably at version 0.10.1 then. I replaced the default SiliconFlow setup with the **Alibaba Cloud API** funded by WangTY’s 15 yuan. Everything was ready.
 
