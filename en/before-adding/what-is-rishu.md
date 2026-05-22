@@ -1,4 +1,4 @@
-# What is Rishu?
+# What Is This?
 
 Rishu is a bot that combines multiple frameworks, giving it both bot functionality and human-like chat capabilities.
 

@@ -1,4 +1,4 @@
-# Rishu's Playlist
+# Playlist
 
 A collection of songs Rishu likes.
 

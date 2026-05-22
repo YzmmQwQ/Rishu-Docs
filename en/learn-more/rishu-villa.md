@@ -1,4 +1,4 @@
-# Rishu's Villa
+# Villa
 
 This is where Rishu lives.
 

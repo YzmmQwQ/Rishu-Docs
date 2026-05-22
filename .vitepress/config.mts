@@ -23,12 +23,13 @@ export default defineConfig({
           { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/' },
           { text: 'GUIDE', link: '/before-adding/what-is-rishu' },
+          { text: 'DIARY', link: '/dev-diary/' },
         ],
         sidebar: [
           {
             text: '添加之前',
             items: [
-              { text: 'Rishu 是什么', link: '/before-adding/what-is-rishu' },
+              { text: '这是什么', link: '/before-adding/what-is-rishu' },
               { text: '关于消息平台问题', link: '/before-adding/platform-issues' },
               { text: '免责声明', link: '/before-adding/disclaimer' },
             ]
@@ -36,9 +37,15 @@ export default defineConfig({
           {
             text: '深入了解 & 杂七杂八',
             items: [
-              { text: 'Rishu の大别野', link: '/learn-more/rishu-villa' },
+              { text: '大别野', link: '/learn-more/rishu-villa' },
               { text: 'MC 服务器', link: '/learn-more/mc-server' },
-              { text: 'Rishu の歌单', link: '/learn-more/playlist' },
+              { text: '歌单', link: '/learn-more/playlist' },
+            ]
+          },
+          {
+            text: '开发日记',
+            items: [
+              { text: '梨汁项目发展回忆录', link: '/dev-diary/rishu-project-memoir' },
             ]
           },
           {
@@ -65,12 +72,13 @@ export default defineConfig({
           { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/en/' },
           { text: 'GUIDE', link: '/en/before-adding/what-is-rishu' },
+          { text: 'DIARY', link: '/en/dev-diary/' },
         ],
         sidebar: [
           {
             text: 'Before Adding',
             items: [
-              { text: 'What is Rishu', link: '/en/before-adding/what-is-rishu' },
+              { text: 'What Is This', link: '/en/before-adding/what-is-rishu' },
               { text: 'Platform Issues', link: '/en/before-adding/platform-issues' },
               { text: 'Disclaimer', link: '/en/before-adding/disclaimer' },
             ]
@@ -78,9 +86,15 @@ export default defineConfig({
           {
             text: 'Learn More & Misc',
             items: [
-              { text: "Rishu's Villa", link: '/en/learn-more/rishu-villa' },
+              { text: 'Villa', link: '/en/learn-more/rishu-villa' },
               { text: 'MC Server', link: '/en/learn-more/mc-server' },
-              { text: "Rishu's Playlist", link: '/en/learn-more/playlist' },
+              { text: 'Playlist', link: '/en/learn-more/playlist' },
+            ]
+          },
+          {
+            text: 'Development Diary',
+            items: [
+              { text: 'Rishu Project Memoir', link: '/en/dev-diary/rishu-project-memoir' },
             ]
           },
           {
@@ -107,12 +121,13 @@ export default defineConfig({
           { text: 'STATUS', link: 'https://status.rishu.cfd', target: '_blank' },
           { text: 'HOME', link: '/ja/' },
           { text: 'GUIDE', link: '/ja/before-adding/what-is-rishu' },
+          { text: 'DIARY', link: '/ja/dev-diary/' },
         ],
         sidebar: [
           {
             text: '追加前に',
             items: [
-              { text: 'Rishu とは', link: '/ja/before-adding/what-is-rishu' },
+              { text: 'これは何？', link: '/ja/before-adding/what-is-rishu' },
               { text: 'プラットフォームの問題', link: '/ja/before-adding/platform-issues' },
               { text: '免責事項', link: '/ja/before-adding/disclaimer' },
             ]
@@ -120,9 +135,15 @@ export default defineConfig({
           {
             text: 'もっと詳しく & その他',
             items: [
-              { text: 'Rishu の大別荘', link: '/ja/learn-more/rishu-villa' },
+              { text: '大別荘', link: '/ja/learn-more/rishu-villa' },
               { text: 'MC サーバー', link: '/ja/learn-more/mc-server' },
-              { text: 'Rishu のプレイリスト', link: '/ja/learn-more/playlist' },
+              { text: 'プレイリスト', link: '/ja/learn-more/playlist' },
+            ]
+          },
+          {
+            text: '開発日記',
+            items: [
+              { text: 'Rishu プロジェクト回想録', link: '/ja/dev-diary/rishu-project-memoir' },
             ]
           },
           {
