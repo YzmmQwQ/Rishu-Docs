@@ -9,7 +9,7 @@ export default defineConfig({
   externalLinkIcon: false,
   markdown: {
     externalLinks: {
-      target: '_self'
+      target: '_blank'
     }
   },
   locales: {

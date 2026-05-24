@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&text=%E2%96%88%E2%95%94%E2%95%97%E2%95%9A%E2%95%9D%E2%95%90%E2%95%91&display=swap');
 
 @font-face {
   font-family: 'MiSans';
@@ -497,4 +498,141 @@
 pre,
 code {
   font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Custom Cursor (matches main site) */
+.cursor {
+  --cursor-width: 26px;
+  --cursor-height: 26px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-width);
+  height: var(--cursor-height);
+  pointer-events: none;
+  z-index: 10000;
+  background: transparent;
+  mix-blend-mode: difference;
+  transition:
+    width 0.25s cubic-bezier(0.8, 0, 0.2, 1),
+    height 0.25s cubic-bezier(0.8, 0, 0.2, 1),
+    opacity 0.2s ease;
+  will-change: transform;
+  display: none;
+}
+
+.cursor span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #fff;
+  transition:
+    width 0.25s cubic-bezier(0.8, 0, 0.2, 1),
+    height 0.25s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+body.has-custom-cursor .cursor {
+  display: block;
+}
+
+.cursor span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+
+.cursor span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+.cursor span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+
+.cursor span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.cursor.is-hover span {
+  width: 16px;
+  height: 16px;
+}
+
+.cursor.is-hidden {
+  opacity: 0;
+}
+
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+}
+
+/* Scroll progress bars (matches main site) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 100%;
+  height: 2px;
+  background: var(--vp-c-text-1);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.side-scroll-indicator {
+  position: fixed;
+  top: 72px;
+  right: 12px;
+  bottom: 90px;
+  z-index: 90;
+  width: 3px;
+  background: var(--vp-c-divider);
+  pointer-events: none;
+}
+
+.side-scroll-indicator span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--vp-c-text-1);
+  transform: scaleY(0.08);
+  transform-origin: top center;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .side-scroll-indicator { display: none; }
+}
+
+/* Hide native scrollbars (custom progress bars handle it) */
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }

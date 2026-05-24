@@ -1,4 +1,4 @@
-# A Memoir of the Rishu Project: From a Xinjiang Trip to a Home Cloud
+﻿# A Memoir of the Rishu Project: From a Xinjiang Trip to a Home Cloud
 
 ## 1. The Xinjiang Trip, and What I Saw Along the Way
 
@@ -64,7 +64,7 @@ The physical server behind Rishu also went through a long and bumpy moving histo
   A 2-core, 2GB independent VPS. It was very cheap, only 6 yuan per month. Overall it was smooth and pleasant to use. Since it was overseas and had an independent IP, it almost never suffered DDoS attacks.
 
 - **2025.9 · Yunnan NAT cloud server**  
-  I bought a Yunnan 2-core, 2GB NAT machine from “Budachuangzao Internet” ([lipxr.cn](https://lipxr.cn)) for 3 yuan per month. It was cheap, yes, but it was also DDoSed every day.
+  I bought a Yunnan 2-core, 2GB NAT machine from “Budachuangzao Internet” ([ipxr.cn](https://ipxr.cn)) for 3 yuan per month. It was cheap, yes, but it was also DDoSed every day.
 
 - **2025.12 · Jiangsu high-bandwidth server**  
   Through the owner of [xi-clouds.cn](https://xi-clouds.cn), I bought a Jiangsu 4H4G machine for 9 yuan per month. Acting as an agent, the owner directly helped me apply for **100M symmetrical upload and download bandwidth**, and the experience was extremely smooth.

@@ -5,6 +5,7 @@ import { useData } from 'vitepress'
 import LanguageSwitch from './components/LanguageSwitch.vue'
 import MusicCard from './components/MusicCard.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
+import NotFound from './components/NotFound.vue'
 
 export default {
   extends: DefaultTheme,
@@ -16,7 +17,8 @@ export default {
     const Layout = DefaultTheme.Layout
     return h(Layout, null, {
       'nav-bar-content-after': () => h(LanguageSwitch),
-      'layout-bottom': () => h(MusicPlayer)
+      'layout-bottom': () => h(MusicPlayer),
+      'not-found': () => h(NotFound)
     })
   },
   setup() {
@@ -97,6 +99,126 @@ export default {
           (icon as HTMLElement).style.display = dark ? 'none' : ''
         })
       })
+
+      setupCustomCursor()
+      setupScrollBars()
     })
   }
+}
+
+function setupScrollBars() {
+  if (document.querySelector('.scroll-progress')) return
+
+  const topBar = document.createElement('div')
+  topBar.className = 'scroll-progress'
+  topBar.setAttribute('aria-hidden', 'true')
+
+  const sideTrack = document.createElement('div')
+  sideTrack.className = 'side-scroll-indicator'
+  sideTrack.setAttribute('aria-hidden', 'true')
+  const sideFill = document.createElement('span')
+  sideTrack.appendChild(sideFill)
+
+  document.body.appendChild(topBar)
+  document.body.appendChild(sideTrack)
+
+  let ticking = false
+  const update = () => {
+    const max = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1
+    )
+    const p = Math.min(window.scrollY / max, 1)
+    topBar.style.transform = `scaleX(${p})`
+    sideFill.style.transform = `scaleY(${Math.max(p, 0.08)})`
+    ticking = false
+  }
+
+  const onScroll = () => {
+    if (ticking) return
+    ticking = true
+    requestAnimationFrame(update)
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+  update()
+}
+
+function setupCustomCursor() {
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return
+  if (document.querySelector('.cursor')) return
+
+  const cursorEl = document.createElement('div')
+  cursorEl.className = 'cursor'
+  cursorEl.innerHTML = '<span></span><span></span><span></span><span></span>'
+  document.body.appendChild(cursorEl)
+  document.body.classList.add('has-custom-cursor')
+
+  const HOVER_SELECTOR =
+    'a, button, [role="button"], .VPLink, .VPNavBarMenuLink, .VPSidebarItem, .theme-text-btn, .lang-switch, kbd, .vp-doc summary, .music-float-btn, .float-menu-btn, .song-item, .song-list > div'
+
+  const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
+  const smooth = { x: pos.x, y: pos.y }
+  const size = { w: 26, h: 26 }
+  let cursorTarget: HTMLElement | null = null
+
+  window.addEventListener(
+    'pointermove',
+    (e) => {
+      pos.x = e.clientX
+      pos.y = e.clientY
+    },
+    { passive: true }
+  )
+
+  // event delegation: works across route changes
+  document.addEventListener('pointerover', (e) => {
+    const t = (e.target as Element)?.closest?.(HOVER_SELECTOR) as HTMLElement | null
+    if (t && t !== cursorTarget) {
+      cursorTarget = t
+      cursorEl.classList.add('is-hover')
+    }
+  })
+
+  document.addEventListener('pointerout', (e) => {
+    if (!cursorTarget) return
+    const related = (e as PointerEvent).relatedTarget as Node | null
+    if (related && cursorTarget.contains(related)) return
+    cursorEl.classList.remove('is-hover')
+    cursorTarget = null
+  })
+
+  document.addEventListener('mouseleave', () => cursorEl.classList.add('is-hidden'))
+  document.addEventListener('mouseenter', () => cursorEl.classList.remove('is-hidden'))
+
+  function tick() {
+    let x = pos.x
+    let y = pos.y
+
+    if (cursorTarget && cursorTarget.isConnected) {
+      const rect = cursorTarget.getBoundingClientRect()
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+      x = cx + (x - cx) * 0.12
+      y = cy + (y - cy) * 0.12
+      size.w = rect.width + 20
+      size.h = rect.height + 20
+    } else {
+      cursorTarget = null
+      cursorEl.classList.remove('is-hover')
+      size.w += (26 - size.w) * 0.2
+      size.h += (26 - size.h) * 0.2
+    }
+
+    smooth.x += (x - smooth.x) * 0.28
+    smooth.y += (y - smooth.y) * 0.28
+
+    cursorEl.style.transform = `translate3d(${smooth.x}px, ${smooth.y}px, 0) translate(-50%, -50%)`
+    cursorEl.style.setProperty('--cursor-width', `${size.w}px`)
+    cursorEl.style.setProperty('--cursor-height', `${size.h}px`)
+
+    requestAnimationFrame(tick)
+  }
+  requestAnimationFrame(tick)
 }
