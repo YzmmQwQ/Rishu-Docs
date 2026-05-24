@@ -636,3 +636,16 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
+
+/* 文字选中颜色 */
+::selection {
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  text-shadow: none;
+}
