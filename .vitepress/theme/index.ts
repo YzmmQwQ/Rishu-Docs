@@ -6,11 +6,13 @@ import LanguageSwitch from './components/LanguageSwitch.vue'
 import MusicCard from './components/MusicCard.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import NotFound from './components/NotFound.vue'
+import HomeShell from './components/HomeShell.vue'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('MusicCard', MusicCard)
+    app.component('HomeShell', HomeShell)
   },
   Layout: () => {
     // @ts-ignore
@@ -161,6 +163,8 @@ function setupCustomCursor() {
   const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
   const smooth = { x: pos.x, y: pos.y }
   const size = { w: 26, h: 26 }
+  let clickScale = 1
+  let clickTarget = 1
   let cursorTarget: HTMLElement | null = null
 
   window.addEventListener(
@@ -192,6 +196,10 @@ function setupCustomCursor() {
   document.addEventListener('mouseleave', () => cursorEl.classList.add('is-hidden'))
   document.addEventListener('mouseenter', () => cursorEl.classList.remove('is-hidden'))
 
+  window.addEventListener('pointerdown', () => { clickTarget = 0.82 }, { passive: true })
+  window.addEventListener('pointerup', () => { clickTarget = 1 }, { passive: true })
+  window.addEventListener('pointercancel', () => { clickTarget = 1 }, { passive: true })
+
   function tick() {
     let x = pos.x
     let y = pos.y
@@ -213,8 +221,9 @@ function setupCustomCursor() {
 
     smooth.x += (x - smooth.x) * 0.28
     smooth.y += (y - smooth.y) * 0.28
+    clickScale += (clickTarget - clickScale) * 0.3
 
-    cursorEl.style.transform = `translate3d(${smooth.x}px, ${smooth.y}px, 0) translate(-50%, -50%)`
+    cursorEl.style.transform = `translate3d(${smooth.x}px, ${smooth.y}px, 0) translate(-50%, -50%) scale(${clickScale})`
     cursorEl.style.setProperty('--cursor-width', `${size.w}px`)
     cursorEl.style.setProperty('--cursor-height', `${size.h}px`)
 

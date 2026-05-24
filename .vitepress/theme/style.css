@@ -166,6 +166,18 @@
   padding-top: 90px !important;
 }
 
+/* 自定义首页：去掉 VPPage 默认边距，让 HomeShell 自己管 */
+.home-rishu .VPPage {
+  padding: 0 !important;
+}
+.home-rishu .VPContent {
+  padding-top: 64px !important;
+}
+.home-rishu .VPFooter {
+  border-top: 1px solid var(--vp-c-border) !important;
+  margin-top: 0;
+}
+
 /* 深浅模式切换按钮 */
 .VPSwitch {
   border: 1px solid var(--vp-c-border) !important;
