@@ -74,12 +74,6 @@
   opacity: 0.2;
 }
 
-/* 确保内容在点状背景之上 */
-.VPHome .VPHero {
-  position: relative;
-  z-index: 1;
-}
-
 /* 导航栏样式 */
 .VPNav {
   border-bottom: 1px solid var(--vp-c-border) !important;
@@ -381,110 +375,10 @@
   border-left-width: 4px !important;
 }
 
-/* 保留圆形头像 */
-.VPHero .image-bg,
-.VPHero .image-container img {
-  border-radius: 50% !important;
-}
-.VPHero .image-bg,
-.VPHero .image-container img {
-  border-radius: 50% !important;
-}
-
 @media (max-width: 960px) {
   .VPLocalNav .theme-text-btn {
     padding: 8px 12px;
   }
-}
-
-/* 圆形头像 */
-.VPHero .image-bg {
-  border-radius: 50%;
-}
-
-.VPHero .image-container img {
-  border-radius: 50%;
-  border: 3px solid var(--vp-c-border);
-}
-
-/* 大标题样式 */
-.VPHero .name {
-  font-size: 4rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.02em !important;
-  line-height: 1.3 !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background: none !important;
-  color: var(--vp-c-text-1) !important;
-}
-
-.VPHero .text {
-  font-size: 1.5rem !important;
-  font-weight: 500 !important;
-  color: var(--vp-c-text-2) !important;
-  line-height: 1.8 !important;
-}
-
-/* Features hover animation */
-.VPFeature {
-  transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1) !important;
-  border-radius: 0 !important;
-  border: 1px solid var(--vp-c-border) !important;
-  background: var(--vp-c-bg) !important;
-}
-
-.VPFeature:hover {
-  background: var(--vp-c-bg-soft) !important;
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0 var(--vp-c-border) !important;
-}
-
-/* Hero 按钮样式 */
-.VPButton {
-  border-radius: 0 !important;
-  font-family: 'IBM Plex Sans', 'MiSans', sans-serif !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.02em !important;
-  transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1) !important;
-}
-
-.VPButton.medium {
-  padding: 0 16px !important;
-  line-height: 36px !important;
-  font-size: 12px !important;
-}
-
-.VPButton.big {
-  padding: 0 20px !important;
-  line-height: 42px !important;
-  font-size: 13px !important;
-}
-
-/* brand 按钮 - 深色背景 */
-.VPButton.brand {
-  border: 1px solid var(--vp-c-text-1) !important;
-  color: var(--vp-c-bg) !important;
-  background-color: var(--vp-c-text-1) !important;
-}
-
-.VPButton.brand:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 var(--vp-c-text-3) !important;
-}
-
-/* alt 按钮 - 边框样式 */
-.VPButton.alt {
-  border: 1px solid var(--vp-c-border) !important;
-  color: var(--vp-c-text-1) !important;
-  background-color: var(--vp-c-bg) !important;
-}
-
-.VPButton.alt:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 var(--vp-c-border) !important;
 }
 
 /* Footer */

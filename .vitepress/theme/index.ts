@@ -27,30 +27,6 @@ export default {
     const { isDark } = useData()
 
     onMounted(() => {
-      const taglines = [
-        'FAST',
-        'SMART',
-        'HUMAN LIKE',
-        'LOVE YOU',
-        'MULTI PLATFORMS'
-      ]
-
-      let index = 0
-      const taglineEl = document.querySelector('.VPHero .tagline')
-
-      if (taglineEl) {
-        setInterval(() => {
-          index = (index + 1) % taglines.length
-          taglineEl.style.opacity = '0'
-          setTimeout(() => {
-            taglineEl.textContent = taglines[index]
-            taglineEl.style.opacity = '1'
-          }, 300)
-        }, 2000)
-
-        taglineEl.style.transition = 'opacity 0.3s ease'
-      }
-
       // 自定义深浅模式按钮
       const customizeThemeToggle = () => {
         const toggles = document.querySelectorAll('.VPSwitch.VPSwitchAppearance')

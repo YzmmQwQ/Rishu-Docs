@@ -2,10 +2,6 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 
-const props = defineProps<{
-  class?: string
-}>()
-
 const { page } = useData()
 const route = useRoute()
 
@@ -57,10 +53,6 @@ function toggleMenu() {
   open.value = !open.value
 }
 
-function closeMenu() {
-  open.value = false
-}
-
 function getLangLink(prefix: string) {
   const path = page.value.relativePath
   let cleanPath = path
@@ -79,7 +71,7 @@ function getLangLink(prefix: string) {
 </script>
 
 <template>
-  <div ref="langSwitchRef" :class="['lang-switch', props.class]">
+  <div ref="langSwitchRef" class="lang-switch">
     <button class="lang-btn" @click="toggleMenu" :aria-expanded="open">
       <span class="text">{{ currentLang.label }}</span>
       <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
@@ -170,50 +162,27 @@ function getLangLink(prefix: string) {
   background: var(--vp-c-bg-soft);
 }
 
-/* 折叠菜单里的样式 */
-.lang-switch.mobile-lang {
-  width: 100%;
-}
-
-.lang-switch.mobile-lang .lang-btn {
-  width: 100%;
-  border: none;
-  padding: 8px 12px;
-  font-size: 13px;
-  justify-content: flex-start;
-}
-
-.lang-switch.mobile-lang .lang-menu {
-  position: static;
-  border: none;
-  width: 100%;
-}
-
-.lang-switch.mobile-lang .lang-option {
-  padding: 8px 24px;
-}
-
 /* 移动端导航栏：显示为图标 */
 @media (max-width: 1279px) {
-  .lang-switch:not(.mobile-lang) {
+  .lang-switch {
     padding: 8px;
   }
 
-  .lang-switch:not(.mobile-lang) .lang-btn {
+  .lang-switch .lang-btn {
     padding: 4px;
     background: transparent;
     border: none;
   }
 
-  .lang-switch:not(.mobile-lang) .lang-btn .text {
+  .lang-switch .lang-btn .text {
     display: none;
   }
 
-  .lang-switch:not(.mobile-lang) .lang-btn .dropdown-arrow {
+  .lang-switch .lang-btn .dropdown-arrow {
     display: none;
   }
 
-  .lang-switch:not(.mobile-lang) .lang-btn .lang-icon {
+  .lang-switch .lang-btn .lang-icon {
     display: block;
   }
 }
