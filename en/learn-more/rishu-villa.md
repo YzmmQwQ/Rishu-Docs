@@ -27,6 +27,8 @@ rishu@poolhub:~$ fastfetch
 
 ```
 
+The info above is for Rishu's backend server. The Arch kernel log on the loading screen comes from the daily-use environment, as a small personal easter egg.
+
 ---
 
 > Stop staring, it's just a cheap server. It runs, that's enough.
