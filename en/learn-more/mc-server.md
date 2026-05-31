@@ -18,7 +18,7 @@ Minecraft servers, welcome to join!
 This is a small personal server. Join requests may not be approved.
 :::
 
-## TradeCraft
+## ~~TradeCraft~~
 
 ![TradeCraft](/img/tradecraft.png)
 
@@ -32,6 +32,23 @@ This is a small personal server. Join requests may not be approved.
 
 ::: warning Note
 The server only supports LittleSkin accounts and premium accounts linked to LittleSkin.
+The server has been shut down, but the QQ group is still active.
+:::
+
+## NovaPath & FTS Rail Transit {#novapath}
+
+![NovaPath](/img/novapath.png)
+
+**Version**: Minecraft Fabric 1.20.1
+
+**Style**: Minecraft Transit Railway server
+
+**Address**: `mtr.yz-mm.top`
+
+**Community**: [QQ Group](https://qm.qq.com/q/zh7E1t6sxi)
+
+::: warning Note
+The server is only open from Friday to Sunday each week. Please do not grief the server, seriously.
 :::
 
 ---

@@ -18,7 +18,7 @@ Minecraft サーバーです。ぜひ参加してください！
 このサーバーは個人の小規模サーバーです。参加申請が承認されない場合があります。
 :::
 
-## TradeCraft
+## ~~TradeCraft~~
 
 ![TradeCraft](/img/tradecraft.png)
 
@@ -32,6 +32,23 @@ Minecraft サーバーです。ぜひ参加してください！
 
 ::: warning 注意
 サーバーは LittleSkin アカウントと LittleSkin に連携した正規アカウントのみ対応しています。
+サーバーはすでに閉鎖されていますが、QQ 交流グループは引き続き運営されています。
+:::
+
+## NovaPath & FTS Rail Transit {#novapath}
+
+![NovaPath](/img/novapath.png)
+
+**バージョン**：Minecraft Fabric 1.20.1
+
+**スタイル**：Minecraft Transit Railway 鉄道サーバー
+
+**接続アドレス**：`mtr.yz-mm.top`
+
+**コミュニティ**：[QQグループ](https://qm.qq.com/q/zh7E1t6sxi)
+
+::: warning 注意
+サーバーは毎週金曜日から日曜日までのみ開放されます。サーバーを荒らさないでください、本当にお願いします。
 :::
 
 ---

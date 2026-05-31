@@ -19,7 +19,7 @@ Minecraft 服务器，欢迎加入游玩！
 :::
 
 
-## TradeCraft
+## ~~TradeCraft~~
 
 ![TradeCraft](/img/tradecraft.png)
 
@@ -33,6 +33,23 @@ Minecraft 服务器，欢迎加入游玩！
 
 ::: warning 注意
 服务器仅支持 LittleSkin 账户和绑定了 LittleSkin 的正版账户进入。
+服务器已经关闭，QQ交流群仍在运营。
+:::
+
+## NovaPath & FTS Rail Transit {#novapath}
+
+![NovaPath](/img/novapath.png)
+
+**版本**：Minecraft Fabric 1.20.1
+
+**风格**：Minecraft Transit Railway 铁路服务器
+
+**连接地址**：`mtr.yz-mm.top`
+
+**社群**：[QQ群](https://qm.qq.com/q/zh7E1t6sxi)
+
+::: warning 注意
+服务器仅在每周的周五到周日开启。不要炸我服啊啊啊啊啊啊啊啊啊啊啊啊
 :::
 
 ---
