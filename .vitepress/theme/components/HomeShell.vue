@@ -1,8 +1,10 @@
 <script setup>
 import { useData } from 'vitepress'
-import { computed } from 'vue'
+import { computed, onMounted, onBeforeUnmount } from 'vue'
 
 const { lang } = useData()
+
+let revealObserver
 
 const i18n = {
   'zh-CN': {
@@ -59,30 +61,60 @@ const i18n = {
 }
 
 const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
+
+onMounted(() => {
+  const els = Array.from(document.querySelectorAll('.home-shell .hs-reveal'))
+  if (!els.length) return
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((e) => e.classList.add('is-visible'))
+    return
+  }
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  )
+  els.forEach((e) => revealObserver.observe(e))
+})
+
+onBeforeUnmount(() => revealObserver?.disconnect())
+
 </script>
 
 <template>
   <div class="home-shell">
     <!-- Banner -->
-    <header class="hs-banner">
+    <header class="hs-banner hs-reveal">
       <h1 class="hs-wordmark">
-        <span class="hs-wordmark-main">{{ data.wordmark.main }}</span><span class="hs-wordmark-accent">{{ data.wordmark.accent }}</span>
+        <span class="hs-wordmark-main">{{ data.wordmark.main }}</span><span class="hs-wordmark-accent">{{ data.wordmark.accent }}</span><span class="hs-caret" aria-hidden="true">▍</span>
       </h1>
       <p class="hs-tagline">{{ data.tagline }}</p>
     </header>
 
     <!-- Stats strip -->
-    <div class="hs-stats">
+    <div class="hs-stats hs-reveal">
       <div v-for="(s, i) in data.stats" :key="i" class="hs-stat">
         <div class="hs-stat-label">{{ s.label }}</div>
         <div class="hs-stat-value">{{ s.value }}</div>
       </div>
     </div>
 
+    <!-- Section eyebrow -->
+    <div class="hs-section-eyebrow hs-reveal">{{ data.sectionEyebrow }}</div>
+
     <!-- Features -->
-    <div class="hs-section-eyebrow">{{ data.sectionEyebrow }}</div>
     <div class="hs-features">
-      <div v-for="(f, i) in data.features" :key="i" class="hs-feature">
+      <div v-for="(f, i) in data.features" :key="i" class="hs-feature hs-reveal">
+        <span class="hs-corner hs-corner-tl" aria-hidden="true"></span>
+        <span class="hs-corner hs-corner-tr" aria-hidden="true"></span>
+        <span class="hs-corner hs-corner-bl" aria-hidden="true"></span>
+        <span class="hs-corner hs-corner-br" aria-hidden="true"></span>
         <div class="hs-feature-num">{{ f.num }}</div>
         <h3 class="hs-feature-title">{{ f.title }}</h3>
         <p class="hs-feature-body">{{ f.body }}</p>
@@ -90,7 +122,7 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
     </div>
 
     <!-- CTA -->
-    <div class="hs-cta">
+    <div class="hs-cta hs-reveal">
       <a :href="data.cta.primary.link" class="hs-btn hs-btn-inverted">
         {{ data.cta.primary.label }}<span class="hs-arrow">→</span>
       </a>
@@ -134,6 +166,19 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
   letter-spacing: 0.04em;
   margin-left: 0.15em;
   vertical-align: 0.15em;
+}
+.hs-caret {
+  display: inline-block;
+  color: var(--hs-accent);
+  font-weight: 400;
+  font-size: 0.5em;
+  vertical-align: 0.18em;
+  margin-left: 0.06em;
+  animation: hsBlink 1.1s steps(1) infinite;
+}
+@keyframes hsBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
 .hs-tagline {
   margin: 16px 0 0;
@@ -211,6 +256,24 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
 .hs-feature:hover {
   background: var(--vp-c-bg-soft);
 }
+
+/* 四角取景框 — 呼应自定义光标 */
+.hs-corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--hs-accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.hs-corner-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.hs-corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.hs-corner-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.hs-corner-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+.hs-feature:hover .hs-corner {
+  opacity: 1;
+}
 .hs-feature-num {
   font-family: 'IBM Plex Sans', 'MiSans', system-ui, sans-serif;
   font-size: 11px;
@@ -237,8 +300,7 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
 /* ── CTA ───────────────────────────────── */
 .hs-cta {
   display: flex;
-  gap: 0;
-  border: 1px solid var(--vp-c-border);
+  gap: 12px;
 }
 .hs-btn {
   flex: 1;
@@ -246,21 +308,23 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
+  border: 1px solid var(--vp-c-border);
   font-family: 'IBM Plex Sans', 'MiSans', system-ui, sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background 0.18s ease, color 0.18s ease;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 .hs-btn-inverted {
   background: var(--vp-c-text-1);
   color: var(--vp-c-bg);
-  border-right: 1px solid var(--vp-c-border);
+  border-color: var(--vp-c-text-1);
 }
 .hs-btn-inverted:hover {
   background: var(--hs-accent);
+  border-color: var(--hs-accent);
   color: #ffffff;
 }
 .hs-btn-ghost {
@@ -269,6 +333,7 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
 }
 .hs-btn-ghost:hover {
   background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-text-3);
 }
 .hs-arrow {
   margin-left: 12px;
@@ -278,10 +343,29 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
   transform: translateX(4px);
 }
 
+/* ── 滚动触发逐块浮现 ───────────────────── */
+.hs-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hs-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hs-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ── responsive ─────────────────────────── */
 @media (max-width: 768px) {
   .home-shell { padding: 24px 16px 60px; }
-  .hs-status { font-size: 10px; letter-spacing: 0.2em; flex-wrap: wrap; }
   .hs-stats { grid-template-columns: 1fr; }
   .hs-stat {
     border-right: none;
@@ -289,9 +373,11 @@ const data = computed(() => i18n[lang.value] || i18n['zh-CN'])
   }
   .hs-stat:last-child { border-bottom: none; }
   .hs-features { grid-template-columns: 1fr; }
-  .hs-feature { border-right: none !important; }
-  .hs-feature:last-child { border-bottom: none; }
+  .hs-feature {
+    border-right: none !important;
+    border-bottom: 1px solid var(--vp-c-border) !important;
+  }
+  .hs-feature:last-child { border-bottom: none !important; }
   .hs-cta { flex-direction: column; }
-  .hs-btn-inverted { border-right: none; border-bottom: 1px solid var(--vp-c-border); }
 }
 </style>

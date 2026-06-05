@@ -28,10 +28,28 @@
   --vp-c-brand-1: #0a0a0a;
   --vp-c-brand-2: #333333;
 
+  --rishu-accent: #e56f00;
+  --rishu-accent-bg: rgba(229, 111, 0, 0.16);
+
+  --vp-header-anchor-symbol: '>';
+
   --vp-font-family-base: 'IBM Plex Sans', 'MiSans', system-ui, -apple-system, sans-serif;
 
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #0a0a0a 0%, #333 100%);
+}
+
+/* 字体平滑渲染 */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code,
+pre,
+kbd,
+.vp-doc code {
+  font-feature-settings: 'liga' 0, 'calt' 0;
 }
 
 .dark {
@@ -50,6 +68,9 @@
 
   --vp-c-brand-1: #ffffff;
   --vp-c-brand-2: #e6e6e6;
+
+  --rishu-accent: #ff8800;
+  --rishu-accent-bg: rgba(255, 136, 0, 0.18);
 
   --vp-home-hero-name-background: linear-gradient(135deg, #fff 0%, #e6e6e6 100%);
 }
@@ -354,26 +375,45 @@
   box-shadow: none !important;
 }
 
-/* 提示框边框 */
-.custom-block.warning {
-  border: 1px solid #e56f00 !important;
-  border-left-width: 4px !important;
+/* 提示框 — 去外框，3px 左条 + 主题色淡底 + mono 标题 */
+.custom-block {
+  border: none !important;
+  padding: 24px 18px 16px !important;
 }
-
+.custom-block .custom-block-title {
+  font-family: 'IBM Plex Sans', 'MiSans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0 0 8px;
+}
+.custom-block p { margin: 0; }
+.custom-block p + p { margin-top: 8px; }
 .custom-block.tip {
-  border: 1px solid #0a0 !important;
-  border-left-width: 4px !important;
+  border-left: 3px solid #00a670 !important;
+  background: rgba(0, 166, 112, 0.08) !important;
 }
+.custom-block.tip .custom-block-title { color: #00a670; }
 
 .custom-block.info {
-  border: 1px solid #0066cc !important;
-  border-left-width: 4px !important;
+  border-left: 3px solid #3b6ea5 !important;
+  background: rgba(59, 110, 165, 0.1) !important;
 }
+.custom-block.info .custom-block-title { color: #3b6ea5; }
+
+.custom-block.warning {
+  border-left: 3px solid var(--rishu-accent) !important;
+  background: rgba(229, 111, 0, 0.09) !important;
+}
+.custom-block.warning .custom-block-title { color: var(--rishu-accent); }
 
 .custom-block.danger {
-  border: 1px solid #dc2626 !important;
-  border-left-width: 4px !important;
+  border-left: 3px solid #dc2626 !important;
+  background: rgba(220, 38, 38, 0.08) !important;
 }
+.custom-block.danger .custom-block-title { color: #dc2626; }
 
 @media (max-width: 960px) {
   .VPLocalNav .theme-text-btn {
@@ -404,6 +444,164 @@
 pre,
 code {
   font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ═══════════════════════════════════════════
+   正文内页 vp-doc 美化
+   ═══════════════════════════════════════════ */
+
+/* 标题层级 — h2 左侧橙色标记条 */
+.vp-doc h2 {
+  margin-top: 52px;
+  padding-top: 26px;
+  border-top: 1px solid var(--vp-c-divider);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+.vp-doc h2::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 3px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: var(--rishu-accent);
+}
+.vp-doc h3 {
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+.vp-doc h3::before {
+  content: '#';
+  margin-right: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
+}
+
+/* 标题锚点 — hover 显示橙色 # */
+.vp-doc .header-anchor {
+  color: var(--vp-c-text-3);
+  transition: color 0.18s ease;
+}
+.vp-doc .header-anchor:hover {
+  color: var(--rishu-accent);
+}
+
+/* 行内代码 — hairline 描边 + soft 底 */
+.vp-doc :not(pre) > code {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  padding: 2px 6px;
+  font-size: 0.85em;
+  color: var(--vp-c-text-1);
+}
+
+/* 代码块 — 终端式顶栏 chrome */
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg-soft);
+  margin: 22px 0;
+  position: relative;
+}
+.vp-doc div[class*='language-']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  border-bottom: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg);
+  z-index: 1;
+}
+.vp-doc div[class*='language-'] > .lang {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  opacity: 1;
+  z-index: 3;
+  transition: none;
+}
+.vp-doc div[class*='language-'] pre {
+  margin: 0;
+  padding-top: 52px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+.vp-doc div[class*='language-'] > button.copy {
+  top: 6px;
+  right: 8px;
+  z-index: 4;
+  border: 1px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg) !important;
+}
+
+/* 引用块 — 橙色左标记条 */
+.vp-doc blockquote {
+  border-left: 3px solid var(--rishu-accent);
+  background: var(--vp-c-bg-soft);
+  padding: 12px 20px;
+  margin: 20px 0;
+  color: var(--vp-c-text-2);
+}
+.vp-doc blockquote > p { margin: 0; }
+
+/* 表格 — hairline + 表头底 */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--vp-c-border);
+  border-collapse: collapse;
+  margin: 22px 0;
+}
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+  font-family: 'IBM Plex Sans', 'MiSans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-text-2);
+  border: 1px solid var(--vp-c-border);
+  padding: 10px 14px;
+}
+.vp-doc td {
+  border: 1px solid var(--vp-c-border);
+  padding: 10px 14px;
+}
+.vp-doc tr { background: transparent !important; }
+.vp-doc tr:hover td { background: var(--vp-c-bg-soft); }
+
+/* 正文链接 — 橙色下划线 hover */
+.vp-doc a:not(.header-anchor):not(.VPButton) {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--vp-c-border);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+.vp-doc a:not(.header-anchor):not(.VPButton):hover {
+  color: var(--rishu-accent);
+  border-bottom-color: var(--rishu-accent);
+}
+
+/* 水平分隔线 */
+.vp-doc hr {
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+  margin: 36px 0;
 }
 
 /* Custom Cursor (matches main site) */
@@ -543,15 +741,101 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* 文字选中颜色 */
+/* 文字选中颜色 — 主品牌橙（DESIGN.md 批准的橙色时刻） */
 ::selection {
-  background: var(--vp-c-text-1);
-  color: var(--vp-c-bg);
+  background: rgba(229, 111, 0, 0.16);
+  color: #e56f00;
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background: var(--vp-c-text-1);
-  color: var(--vp-c-bg);
+  background: rgba(229, 111, 0, 0.16);
+  color: #e56f00;
   text-shadow: none;
+}
+
+.dark ::selection {
+  background: rgba(255, 136, 0, 0.18);
+  color: #ff8800;
+}
+
+.dark ::-moz-selection {
+  background: rgba(255, 136, 0, 0.18);
+  color: #ff8800;
+}
+
+/* ═══════════════════════════════════════════
+   导航 / 侧边栏 chrome 精修
+   ═══════════════════════════════════════════ */
+
+/* 侧边栏 active item — 终端式 > 前缀 + 橙色 */
+.VPSidebarItem.is-active > .item .link .text,
+.VPSidebarItem.is-active > .item .text {
+  color: var(--rishu-accent) !important;
+  font-weight: 600 !important;
+}
+.VPSidebarItem.is-link.is-active > .item .link .text::before {
+  content: '> ';
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  color: var(--rishu-accent);
+}
+
+/* 侧边栏 hover */
+.VPSidebarItem .link:hover .text {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 导航栏菜单链接 hover / active */
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active {
+  color: var(--rishu-accent) !important;
+}
+
+/* 上一页 / 下一页卡片 */
+.vp-doc .pager-link {
+  border: 1px solid var(--vp-c-border);
+  padding: 14px 18px;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+.vp-doc .pager-link:hover {
+  border-color: var(--rishu-accent);
+  background: var(--vp-c-bg-soft);
+}
+.vp-doc .pager-link .desc {
+  font-family: 'JetBrains Mono', 'MiSans', ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+.vp-doc .pager-link .title {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  transition: color 0.18s ease;
+}
+.vp-doc .pager-link:hover .title {
+  color: var(--rishu-accent);
+}
+
+/* 文档底部 meta — 编辑链接 / 更新时间 */
+.VPDocFooter .edit-info .edit-link-button {
+  color: var(--vp-c-text-3) !important;
+  transition: color 0.18s ease;
+}
+.VPDocFooter .edit-info .edit-link-button:hover {
+  color: var(--rishu-accent) !important;
+}
+
+/* 右侧大纲 outline — active 锚点橙色 */
+.VPDocAsideOutline .outline-link.active {
+  color: var(--rishu-accent) !important;
+}
+.VPDocAsideOutline .outline-marker {
+  background-color: var(--rishu-accent) !important;
+}
+.VPDocAsideOutline .title {
+  font-family: 'JetBrains Mono', 'MiSans', ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
