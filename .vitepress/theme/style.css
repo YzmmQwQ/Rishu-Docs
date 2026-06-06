@@ -488,18 +488,18 @@ code {
   color: var(--rishu-accent);
 }
 
-/* 行内代码 — hairline 描边 + soft 底 */
+/* 行内代码 — 无边框，soft 底更简约 */
 .vp-doc :not(pre) > code {
   background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
+  border: none;
   padding: 2px 6px;
   font-size: 0.85em;
   color: var(--vp-c-text-1);
 }
 
-/* 代码块 — 终端式顶栏 chrome */
+/* 代码块 — 终端式顶栏 chrome，无外框更简约 */
 .vp-doc div[class*='language-'] {
-  border: 1px solid var(--vp-c-border);
+  border: none;
   background: var(--vp-c-bg-soft);
   margin: 22px 0;
   position: relative;
