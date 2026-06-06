@@ -182,12 +182,19 @@ function setupCustomCursor() {
 
     if (cursorTarget && cursorTarget.isConnected) {
       const rect = cursorTarget.getBoundingClientRect()
-      const cx = rect.left + rect.width / 2
-      const cy = rect.top + rect.height / 2
-      x = cx + (x - cx) * 0.12
-      y = cy + (y - cy) * 0.12
-      size.w = rect.width + 20
-      size.h = rect.height + 20
+      if (rect.width === 0 && rect.height === 0) {
+        cursorTarget = null
+        cursorEl.classList.remove('is-hover')
+        size.w += (26 - size.w) * 0.2
+        size.h += (26 - size.h) * 0.2
+      } else {
+        const cx = rect.left + rect.width / 2
+        const cy = rect.top + rect.height / 2
+        x = cx + (x - cx) * 0.12
+        y = cy + (y - cy) * 0.12
+        size.w = rect.width + 20
+        size.h = rect.height + 20
+      }
     } else {
       cursorTarget = null
       cursorEl.classList.remove('is-hover')
