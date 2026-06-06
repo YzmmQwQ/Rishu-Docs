@@ -422,11 +422,19 @@ kbd,
 }
 
 /* Footer */
-.VPFooter a {
+.VPFooter .message a,
+.VPFooter .copyright a {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
   text-decoration: none !important;
+  border-bottom: 1px solid var(--vp-c-border);
+  transition: border-color 0.18s ease, color 0.18s ease;
 }
 
-.VPFooter a:hover {
+.VPFooter .message a:hover,
+.VPFooter .copyright a:hover {
+  color: var(--rishu-accent);
+  border-bottom-color: var(--rishu-accent);
   text-decoration: none !important;
 }
 
