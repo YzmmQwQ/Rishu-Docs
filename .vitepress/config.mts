@@ -6,7 +6,9 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
-  externalLinkIcon: false,
+  themeConfig: {
+    externalLinkIcon: false
+  },
   markdown: {
     externalLinks: {
       target: '_blank'
@@ -57,7 +59,7 @@ export default defineConfig({
           }
         ],
         footer: {
-          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+          message: 'MADE BY <a href="https://yz-mm.top" target="_blank" rel="noopener">YZMM</a>'
         }
       }
     },
@@ -106,7 +108,7 @@ export default defineConfig({
           }
         ],
         footer: {
-          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+          message: 'MADE BY <a href="https://yz-mm.top" target="_blank" rel="noopener">YZMM</a>'
         }
       }
     },
@@ -155,7 +157,7 @@ export default defineConfig({
           }
         ],
         footer: {
-          message: 'MADE BY <a href="https://yz-mm.top">YZMM</a>'
+          message: 'MADE BY <a href="https://yz-mm.top" target="_blank" rel="noopener">YZMM</a>'
         }
       }
     }
