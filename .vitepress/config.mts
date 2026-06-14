@@ -34,6 +34,7 @@ export default defineConfig({
               { text: '这是什么', link: '/before-adding/what-is-rishu' },
               { text: '关于消息平台问题', link: '/before-adding/platform-issues' },
               { text: '免责声明', link: '/before-adding/disclaimer' },
+              { text: '社媒合辑', link: '/before-adding/social-media' },
             ]
           },
           {
@@ -83,6 +84,7 @@ export default defineConfig({
               { text: 'What Is This', link: '/en/before-adding/what-is-rishu' },
               { text: 'Platform Issues', link: '/en/before-adding/platform-issues' },
               { text: 'Disclaimer', link: '/en/before-adding/disclaimer' },
+              { text: 'Social Media', link: '/en/before-adding/social-media' },
             ]
           },
           {
@@ -132,6 +134,7 @@ export default defineConfig({
               { text: 'これは何？', link: '/ja/before-adding/what-is-rishu' },
               { text: 'プラットフォームの問題', link: '/ja/before-adding/platform-issues' },
               { text: '免責事項', link: '/ja/before-adding/disclaimer' },
+              { text: 'ソーシャルメディア', link: '/ja/before-adding/social-media' },
             ]
           },
           {

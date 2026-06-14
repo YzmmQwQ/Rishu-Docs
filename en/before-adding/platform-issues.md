@@ -1,7 +1,7 @@
 # About Messaging Platform Issues
 
 ::: warning Note
-Rishu may soon support Discord, Telegram, and other mainstream messaging platforms in Western countries, so you can ignore this section.
+Rishu now supports Discord, Telegram, and other mainstream messaging platforms in Western countries, so you can ignore this section.
 :::
 
 ## Why QQ?
@@ -49,8 +49,8 @@ These warnings **don't necessarily mean the account has actual issues**—they'r
 
 Rishu's technical architecture (AstrBot + MaiBot) naturally supports multiple platforms:
 
-- **Supported**: QQ
-- **Planned**: Telegram, Discord, WeChat, Feishu, DingTalk, Slack
+- **Supported**: QQ, Telegram, Discord
+- **Planned**: WeChat, Feishu, DingTalk, Slack
 
 As Rishu grows, we plan to expand to more platforms to reduce dependency on a single platform.
 

@@ -12,13 +12,13 @@ const i18n = {
     tagline: '致力于拟人化的 A.I. Agent.',
     stats: [
       { label: 'FRAMEWORK', value: 'MAIBOT × ASTRBOT' },
-      { label: 'PLATFORMS', value: 'QQ · DISCORD · EMAIL' },
+      { label: 'PLATFORMS', value: 'QQ · DISCORD · TG · EMAIL' },
       { label: 'COST', value: 'FREE' }
     ],
     sectionEyebrow: '$ ls /capabilities',
     features: [
       { num: '01', title: '多框架混合驱动', body: '由 MaiBot 处理自然语言消息，AstrBot 实现多功能。' },
-      { num: '02', title: '多平台支持', body: '兼容如 QQ 的多个平台，还将适配 Discord、Email 等更多消息平台。' },
+      { num: '02', title: '多平台支持', body: '已支持 QQ、Discord、Telegram、Email 等多个消息平台。' },
       { num: '03', title: '完全免费', body: '由多个站点提供多个优秀模型。' },
       { num: '04', title: '隐私保护', body: '除提供商可能的数据收集外，不会收集任何信息。' }
     ],
@@ -29,13 +29,13 @@ const i18n = {
     tagline: 'An anthropomorphic A.I. agent.',
     stats: [
       { label: 'FRAMEWORK', value: 'MAIBOT × ASTRBOT' },
-      { label: 'PLATFORMS', value: 'QQ · DISCORD · EMAIL' },
+      { label: 'PLATFORMS', value: 'QQ · DISCORD · TG · EMAIL' },
       { label: 'COST', value: 'FREE' }
     ],
     sectionEyebrow: '$ ls /capabilities',
     features: [
       { num: '01', title: 'Hybrid framework', body: 'MaiBot handles natural language, AstrBot powers functionality.' },
-      { num: '02', title: 'Multi-platform', body: 'QQ today, Discord / Email / and more on the roadmap.' },
+      { num: '02', title: 'Multi-platform', body: 'Supports QQ, Discord, Telegram, Email and more.' },
       { num: '03', title: 'Free', body: 'Multiple providers contribute capable models at zero cost.' },
       { num: '04', title: 'Privacy first', body: 'No collection beyond what your model provider may log.' }
     ],
@@ -46,13 +46,13 @@ const i18n = {
     tagline: '擬人化された A.I. エージェント。',
     stats: [
       { label: 'FRAMEWORK', value: 'MAIBOT × ASTRBOT' },
-      { label: 'PLATFORMS', value: 'QQ · DISCORD · EMAIL' },
+      { label: 'PLATFORMS', value: 'QQ · DISCORD · TG · EMAIL' },
       { label: 'COST', value: 'FREE' }
     ],
     sectionEyebrow: '$ ls /capabilities',
     features: [
       { num: '01', title: 'ハイブリッド構成', body: 'MaiBot が自然言語、AstrBot が機能拡張を担当。' },
-      { num: '02', title: 'マルチプラットフォーム', body: 'QQ に対応、Discord・Email も順次対応。' },
+      { num: '02', title: 'マルチプラットフォーム', body: 'QQ、Discord、Telegram、Email など複数のプラットフォームに対応。' },
       { num: '03', title: '完全無料', body: '複数のプロバイダから優れたモデルを無償で利用。' },
       { num: '04', title: 'プライバシー保護', body: 'プロバイダ側のログ以外、一切収集しません。' }
     ],
