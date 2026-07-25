@@ -2,14 +2,6 @@
 
 这里是 Rishu 在各个平台的账号和联系方式。
 
-## 群组
-
-- **QQ Group**：[Rishu🥰](https://qm.qq.com/q/A3rvgNwWt2)
-
-- **Discord Server**：[RishuQwQ!](https://discord.gg/9RPRkcR7Zk)
-
-- **Telegram Channel**：[Rishu🥰](https://t.me/+JTBkj1FBG2s4OTY1)
-
 ## 个人社交媒体
 
 - **X (Twitter)**：[RishuQwQ](https://x.com/rishuqwq)
@@ -23,5 +15,5 @@
 :::
 
 ::: tip 提示
-Discord 服务器和 Telegram Channel 中的 Rishu 账号框架为 LobeHub 所用机器人框架，因此与 QQ 版本略有不同，敬请谅解。
+为了防止滥用，Rishu 账号不对外开放。也许你可以通过各种方式联系到作者来使用？
 :::

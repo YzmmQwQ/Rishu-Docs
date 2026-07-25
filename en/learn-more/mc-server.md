@@ -1,6 +1,6 @@
 # MC Servers
 
-Minecraft servers, welcome to join!
+Minecraft servers, welcome to join! Note that **stability is not guaranteed** for any of the servers below.
 
 ## Finaless
 
@@ -18,37 +18,22 @@ Minecraft servers, welcome to join!
 This is a small personal server. Join requests may not be approved.
 :::
 
-## ~~TradeCraft~~
+## TradeCraft
 
 ![TradeCraft](/img/tradecraft.png)
 
 **Version**: Minecraft 1.21.11
 
-**Style**: Minigames, Survival, Building
+**Style**: Territory War
 
-**Address**: `mc.781391.cc`
+**Connection Address**: `mc.781391.cc`
 
 **Community**: [QQ Group](https://qm.qq.com/q/oZj2XhH97k)
 
+**Official Website**: [mc.781391.cc](https://mc.781391.cc)
+
 ::: warning Note
 The server only supports LittleSkin accounts and premium accounts linked to LittleSkin.
-The server has been shut down, but the QQ group is still active.
-:::
-
-## NovaPath & FTS Rail Transit {#novapath}
-
-![NovaPath](/img/novapath.png)
-
-**Version**: Minecraft Fabric 1.20.1
-
-**Style**: Minecraft Transit Railway server
-
-**Address**: `mtr.yz-mm.top`
-
-**Community**: [QQ Group](https://qm.qq.com/q/zh7E1t6sxi)
-
-::: warning Note
-The server is only open from Friday to Sunday each week. Please do not grief the server, seriously.
 :::
 
 ---

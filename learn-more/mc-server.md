@@ -1,6 +1,6 @@
 # MC 服务器
 
-Minecraft 服务器，欢迎加入游玩！
+Minecraft 服务器，欢迎加入游玩！注意，以下所有服务器均**不保证时刻稳定**。
 
 ## Finaless
 
@@ -19,37 +19,22 @@ Minecraft 服务器，欢迎加入游玩！
 :::
 
 
-## ~~TradeCraft~~
+## TradeCraft
 
 ![TradeCraft](/img/tradecraft.png)
 
 **版本**：Minecraft 1.21.11
 
-**风格**：小游戏、生存、建筑
+**风格**：领土战争
 
-**地址**：`mc.781391.cc`
+**连接地址**：`mc.781391.cc`
 
 **社群**：[QQ群](https://qm.qq.com/q/oZj2XhH97k)
 
+**官方网站**：[mc.781391.cc](https://mc.781391.cc)
+
 ::: warning 注意
 服务器仅支持 LittleSkin 账户和绑定了 LittleSkin 的正版账户进入。
-服务器已经关闭，QQ交流群仍在运营。
-:::
-
-## NovaPath & FTS Rail Transit {#novapath}
-
-![NovaPath](/img/novapath.png)
-
-**版本**：Minecraft Fabric 1.20.1
-
-**风格**：Minecraft Transit Railway 铁路服务器
-
-**连接地址**：`mtr.yz-mm.top`
-
-**社群**：[QQ群](https://qm.qq.com/q/zh7E1t6sxi)
-
-::: warning 注意
-服务器仅在每周的周五到周日开启。不要炸我服啊啊啊啊啊啊啊啊啊啊啊啊
 :::
 
 ---
