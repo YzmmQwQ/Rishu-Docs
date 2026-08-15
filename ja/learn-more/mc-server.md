@@ -26,11 +26,11 @@ Minecraft サーバーです。ぜひ参加して遊んでください！なお�
 
 **スタイル**：領土戦争
 
-**接続アドレス**：`mc.781391.cc`
+**接続アドレス**：`trademc.cc`
 
 **コミュニティ**：[QQグループ](https://qm.qq.com/q/oZj2XhH97k)
 
-**公式サイト**：[mc.781391.cc](https://mc.781391.cc)
+**公式サイト**：[trademc.cc](https://trademc.cc)
 
 ::: warning 注意
 サーバーは LittleSkin アカウントと LittleSkin に連携した正規アカウントのみ対応しています。
