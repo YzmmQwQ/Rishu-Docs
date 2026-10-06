@@ -27,11 +27,11 @@ Minecraft 服务器，欢迎加入游玩！注意，以下所有服务器均**�
 
 **风格**：领土战争
 
-**连接地址**：`trademc.cc`
+**连接地址**：`mc.trademc.cc`
 
 **社群**：[QQ群](https://qm.qq.com/q/oZj2XhH97k)
 
-**官方网站**：[trademc.cc](https://trademc.cc)
+**官方网站**：[mc.trademc.cc](https://mc.trademc.cc)
 
 ::: warning 注意
 服务器仅支持 LittleSkin 账户和绑定了 LittleSkin 的正版账户进入。

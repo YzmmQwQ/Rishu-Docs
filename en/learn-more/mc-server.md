@@ -26,11 +26,11 @@ This is a small personal server. Join requests may not be approved.
 
 **Style**: Territory War
 
-**Connection Address**: `trademc.cc`
+**Connection Address**: `mc.trademc.cc`
 
 **Community**: [QQ Group](https://qm.qq.com/q/oZj2XhH97k)
 
-**Official Website**: [trademc.cc](https://trademc.cc)
+**Official Website**: [mc.trademc.cc](https://mc.trademc.cc)
 
 ::: warning Note
 The server only supports LittleSkin accounts and premium accounts linked to LittleSkin.
